@@ -14,6 +14,42 @@
 <meta name="twitter:title" content="와우앤플러스 | Network Business Solution">
 <meta name="twitter:description" content="방문판매·다단계·후원방문판매 전문 솔루션. 회원·조직·수당·물류 통합 관리.">
 <meta name="twitter:image" content="https://wownplus.github.io/landing/og-image.png">
+<link rel="canonical" href="https://wownplus.github.io/landing/">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"㈜와우앤플러스",
+  "alternateName":"WOWnPLUS",
+  "url":"https://wownplus.github.io/landing/",
+  "logo":"https://wownplus.github.io/landing/WOWnPlus_Logo-Kr_투명.png",
+  "description":"다단계판매·방문판매·후원방문판매 업종을 위한 전문 소프트웨어 개발·컨설팅 기업.",
+  "address":{"@type":"PostalAddress","streetAddress":"성수일로 99 서울숲AK밸리 1413호","addressLocality":"성동구","addressRegion":"서울","addressCountry":"KR"},
+  "contactPoint":{"@type":"ContactPoint","telephone":"+82-2-6083-6919","contactType":"sales","email":"wownplus@wownplus.co.kr","areaServed":"KR","availableLanguage":["ko","en","ja","zh"]}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"와우앤플러스",
+  "url":"https://wownplus.github.io/landing/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"와우넷은 어떤 업종을 지원하나요?","acceptedAnswer":{"@type":"Answer","text":"다단계판매·후원방문판매·방문판매·프랜차이즈 등 판매 방식별 조직 구조와 정산 요건에 맞춰 시스템을 구성합니다. 규모에 따라 버전을 선택할 수 있습니다."}},
+    {"@type":"Question","name":"마케팅플랜을 바꾸면 수당 결과를 미리 확인할 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"마케팅플랜 시뮬레이션 기능으로 가상 회원·주문 데이터를 입력해, 조건 변경에 따른 지급률과 리스크를 실제 적용 전에 계산해 검증할 수 있습니다."}},
+    {"@type":"Question","name":"본사와 센터의 데이터를 함께 관리할 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"회원·조직·주문·수당·물류를 하나의 통합 데이터로 관리해, 본사와 센터가 동일한 기준 데이터로 움직이도록 구성합니다. 센터별 권한 분리도 지원합니다."}},
+    {"@type":"Question","name":"해외 사업이나 다국어도 지원되나요?","acceptedAnswer":{"@type":"Answer","text":"유니코드 기반 다국어 시스템으로 한국어·영어·일본어·중국어·대만어를 지원하며, 해외 사업에도 대응할 수 있습니다."}},
+    {"@type":"Question","name":"도입 이후 유지보수와 지원은 어떻게 이루어지나요?","acceptedAnswer":{"@type":"Answer","text":"A/S 전담 마크제와 원격 지원, 정기·비정기 교육을 제공하며, 별도 서버 데이터 백업을 매일 수행합니다."}},
+    {"@type":"Question","name":"도입 절차와 비용은 어떻게 되나요?","acceptedAnswer":{"@type":"Answer","text":"상담 문의 → 업종·마케팅플랜 분석 → 구성안·견적 제안 → 구축·커스터마이징 → 오픈·유지보수 순으로 진행됩니다. 실제 구성·기능·비용은 업종과 요구사항에 따라 상담을 통해 안내됩니다."}}
+  ]
+}
+</script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
   :root{
@@ -250,6 +286,17 @@
   .btn svg,a svg.i{width:17px;height:17px;vertical-align:-3px}
   .float-cta a svg{width:19px;height:19px}
 
+  /* FAQ */
+  .faq{background:var(--bg)}
+  .faq-list{max-width:820px;margin:0 auto;display:grid;gap:12px}
+  .faq-item{background:#fff;border:1px solid var(--gray-100);border-radius:12px;overflow:hidden;transition:border-color .2s}
+  .faq-item[open]{border-color:var(--gold)}
+  .faq-item summary{list-style:none;cursor:pointer;padding:20px 22px;font-size:16.5px;font-weight:700;color:var(--navy-800);display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::after{content:"+";font-size:24px;line-height:1;color:var(--gold);font-weight:400;transition:transform .2s;flex:0 0 auto}
+  .faq-item[open] summary::after{transform:rotate(45deg)}
+  .faq-item .a{padding:0 22px 20px;font-size:15px;color:var(--gray-700);line-height:1.8}
+
   @media (max-width:960px){
     .hero-inner{grid-template-columns:1fr;gap:38px;padding:64px 0 70px}
     .hero h1{font-size:36px}
@@ -280,11 +327,11 @@
       <span class="brand-logo brand-logo--head" role="img" aria-label="와우앤플러스 Business Solutions Leader"></span>
     </a>
     <nav class="nav-links" id="navLinks">
-      <a href="#problem">도입 배경</a>
       <a href="#solution">솔루션</a>
       <a href="#features">핵심 기능</a>
       <a href="#industry">업종별 대응</a>
-      <a href="#trust">도입 신뢰</a>
+      <a href="insights/">인사이트</a>
+      <a href="#faq">FAQ</a>
       <a href="#contact" class="nav-cta">상담 문의</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="메뉴"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
@@ -511,6 +558,43 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">FAQ</span>
+      <h2>자주 묻는 질문</h2>
+      <p>도입을 검토하며 가장 많이 주시는 질문을 모았습니다.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item reveal">
+        <summary>와우넷은 어떤 업종을 지원하나요?</summary>
+        <div class="a">다단계판매·후원방문판매·방문판매·프랜차이즈 등 판매 방식별 조직 구조와 정산 요건에 맞춰 시스템을 구성합니다. 규모에 따라 버전을 선택할 수 있습니다.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>마케팅플랜을 바꾸면 수당 결과를 미리 확인할 수 있나요?</summary>
+        <div class="a">마케팅플랜 시뮬레이션 기능으로 가상 회원·주문 데이터를 입력해, 조건 변경에 따른 지급률과 리스크를 실제 적용 전에 계산해 검증할 수 있습니다.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>본사와 센터의 데이터를 함께 관리할 수 있나요?</summary>
+        <div class="a">회원·조직·주문·수당·물류를 하나의 통합 데이터로 관리해, 본사와 센터가 동일한 기준 데이터로 움직이도록 구성합니다. 센터별 권한 분리도 지원합니다.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>해외 사업이나 다국어도 지원되나요?</summary>
+        <div class="a">유니코드 기반 다국어 시스템으로 한국어·영어·일본어·중국어·대만어를 지원하며, 해외 사업에도 대응할 수 있습니다.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>도입 이후 유지보수와 지원은 어떻게 이루어지나요?</summary>
+        <div class="a">A/S 전담 마크제와 원격 지원, 정기·비정기 교육을 제공하며, 별도 서버 데이터 백업을 매일 수행합니다.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>도입 절차와 비용은 어떻게 되나요?</summary>
+        <div class="a">상담 문의 → 업종·마케팅플랜 분석 → 구성안·견적 제안 → 구축·커스터마이징 → 오픈·유지보수 순으로 진행됩니다. 실제 구성·기능·비용은 업종과 요구사항에 따라 상담을 통해 안내됩니다.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- Contact -->
 <section class="contact" id="contact">
   <div class="wrap contact-grid">
@@ -577,10 +661,10 @@
         </div>
       </div>
       <div class="foot-links">
-        <a href="#problem">도입 배경</a>
         <a href="#solution">솔루션</a>
         <a href="#features">핵심 기능</a>
-        <a href="#industry">업종별 대응</a>
+        <a href="insights/">인사이트</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">상담 문의</a>
       </div>
     </div>
