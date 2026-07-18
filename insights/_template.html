@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<!--
+============================================================
+  새 글 작성 템플릿  (와우앤플러스 인사이트)
+============================================================
+  [사용법]
+  1) 이 파일을 복사해 파일명을 영문-슬러그.html 로 바꾸세요.
+     예: insights/member-org-management-tips.html
+  2) 아래 {{ }} 표시된 부분을 모두 실제 내용으로 교체하세요.
+       {{TITLE}}        글 제목
+       {{DESC}}         검색결과에 나올 한두 문장 요약(설명)
+       {{SLUG}}         파일명(확장자 포함). 예: member-org-management-tips.html
+       {{CATEGORY}}     인사이트 / 기술 / 공지  (셋 중 하나)
+       {{CATEGORY_LABEL}}  화면에 보일 배지 글자. 인사이트 / 기술 자료 / 공지 · 뉴스
+       {{DATE_ISO}}     발행일(기계용). 예: 2026-08-01
+       {{DATE_KR}}      발행일(화면용). 예: 2026. 08. 01
+       {{READ}}         읽기 시간. 예: 읽기 약 6분  (공지는 "공지"로)
+       {{BODY}}         본문 (아래 예시 태그 참고)
+  3) 완성 후 GitHub의 insights/ 폴더에 업로드(커밋)하세요.
+  4) 목록에 노출하려면 insights/index.html 의 <div class="posts"> 안에
+     맨 위에 아래 카드 스니펫을 붙여넣고 값을 교체하세요:
+
+     <a class="post-card" data-c="{{CATEGORY}}" href="{{SLUG}}">
+       <div class="thumb" style="background-image:url('../section-bg.png')"></div>
+       <div class="body">
+         <span class="cat" data-c="{{CATEGORY}}">{{CATEGORY_LABEL}}</span>
+         <h3>{{TITLE}}</h3>
+         <p>{{DESC}}</p>
+         <div class="meta">{{DATE_KR}} · {{READ}}</div>
+       </div>
+     </a>
+
+  5) 검색 등록용 sitemap.xml (루트) 에 아래 한 블록을 추가하세요:
+
+     <url>
+       <loc>https://wownplus.github.io/landing/insights/{{SLUG}}</loc>
+       <lastmod>{{DATE_ISO}}</lastmod>
+       <changefreq>monthly</changefreq>
+       <priority>0.6</priority>
+     </url>
+
+  ※ 이 _template.html 파일 자체는 noindex 처리되어 검색에 노출되지 않습니다.
+     실제 글에서는 아래 <meta name="robots" ...> 줄을 삭제하세요.
+  ※ FAQ 블록(맨 아래 두 번째 JSON-LD, 본문 하단 .qa)은 선택입니다.
+     Q&A가 없으면 해당 부분을 지워도 됩니다. 있으면 AI 답변엔진 노출에 유리합니다.
+============================================================
+-->
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>{{TITLE}} | 와우앤플러스</title>
+<meta name="description" content="{{DESC}}">
+<link rel="canonical" href="https://wownplus.github.io/landing/insights/{{SLUG}}">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{DESC}}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wownplus.github.io/landing/insights/{{SLUG}}">
+<meta property="og:image" content="https://wownplus.github.io/landing/og-image.png">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "headline":"{{TITLE}}",
+  "description":"{{DESC}}",
+  "image":"https://wownplus.github.io/landing/og-image.png",
+  "datePublished":"{{DATE_ISO}}",
+  "dateModified":"{{DATE_ISO}}",
+  "author":{"@type":"Organization","name":"㈜와우앤플러스"},
+  "publisher":{"@type":"Organization","name":"㈜와우앤플러스","logo":{"@type":"ImageObject","url":"https://wownplus.github.io/landing/WOWnPlus_Logo-Kr_투명.png"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://wownplus.github.io/landing/insights/{{SLUG}}"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"홈","item":"https://wownplus.github.io/landing/"},
+    {"@type":"ListItem","position":2,"name":"인사이트 · 자료실","item":"https://wownplus.github.io/landing/insights/"},
+    {"@type":"ListItem","position":3,"name":"{{TITLE}}","item":"https://wownplus.github.io/landing/insights/{{SLUG}}"}
+  ]
+}
+</script>
+<!-- (선택) FAQ 스키마 — Q&A가 있을 때만 사용. 없으면 이 <script> 블록 삭제 -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"{{질문 1}}","acceptedAnswer":{"@type":"Answer","text":"{{답변 1}}"}},
+    {"@type":"Question","name":"{{질문 2}}","acceptedAnswer":{"@type":"Answer","text":"{{답변 2}}"}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><span class="mark">W</span><span>와우앤플러스<small>NETWORK BUSINESS SOLUTION</small></span></a>
+    <nav class="nav-links">
+      <a href="../#solution">솔루션</a>
+      <a href="../#features">핵심 기능</a>
+      <a href="./" class="on">인사이트</a>
+      <a href="../#faq">FAQ</a>
+      <a href="../#contact" class="nav-cta">상담 문의</a>
+    </nav>
+  </div>
+</header>
+
+<div class="article-head">
+  <div class="wrap">
+    <span class="cat" data-c="{{CATEGORY}}">{{CATEGORY_LABEL}}</span>
+    <h1>{{TITLE}}</h1>
+    <div class="meta">{{DATE_KR}} · ㈜와우앤플러스 · {{READ}}</div>
+  </div>
+</div>
+
+<article class="article-body">
+  <!-- ===== 본문 시작 ({{BODY}}) : 아래 예시 태그를 참고해 작성하세요 ===== -->
+  <p class="lead">글을 요약하는 도입 문단입니다. 독자가 이 글에서 무엇을 얻는지 한두 문장으로 적습니다.</p>
+
+  <h2>소제목 1</h2>
+  <p>문단 내용을 적습니다. 강조가 필요하면 <strong>이렇게</strong> 표시합니다.</p>
+
+  <h3>더 작은 소제목</h3>
+  <ul>
+    <li>목록 항목 1</li>
+    <li>목록 항목 2</li>
+  </ul>
+
+  <blockquote>핵심 메시지를 인용구로 강조할 수 있습니다.</blockquote>
+
+  <h2>소제목 2</h2>
+  <p>추가 설명 문단입니다.</p>
+
+  <!-- (선택) 자주 묻는 질문 — 위 FAQ 스키마와 내용을 동일하게 맞추세요 -->
+  <h2>자주 묻는 질문</h2>
+  <div class="qa">
+    <h3>Q. {{질문 1}}</h3>
+    <p>{{답변 1}}</p>
+  </div>
+  <div class="qa">
+    <h3>Q. {{질문 2}}</h3>
+    <p>{{답변 2}}</p>
+  </div>
+  <!-- ===== 본문 끝 ===== -->
+</article>
+
+<div class="article-cta">
+  <h3>도입을 검토 중이시라면</h3>
+  <p>업종·규모·마케팅플랜에 맞는 시스템 구성을 상담으로 안내해 드립니다.</p>
+  <a href="../#contact" class="btn-gold">상담 문의하기 →</a>
+  <div style="margin-top:22px"><a href="./" class="backlink">← 인사이트 목록으로</a></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">㈜와우앤플러스</div>
+        <div class="foot-info">Network Business Solution Leader<br>서울시 성동구 성수일로 99, 서울숲AK밸리 1413호<br>TEL. 02.6083.6919 &nbsp;|&nbsp; wownplus@wownplus.co.kr</div>
+      </div>
+      <div class="foot-links">
+        <a href="../">홈</a><a href="./">인사이트</a><a href="../#faq">FAQ</a><a href="../#contact">상담 문의</a>
+      </div>
+    </div>
+    <div class="foot-bottom">Copyright © 2026. WOWnPLUS. All rights reserved.</div>
+  </div>
+</footer>
+</body>
+</html>
